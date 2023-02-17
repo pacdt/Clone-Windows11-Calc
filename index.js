@@ -106,6 +106,25 @@ for (let i = 0; i < buttons.length; i++) {
 	});
 }
 
+function backspace() {
+    let displayValue = display.innerHTML;
+    display.innerHTML = ''
+	let newValue = displayValue.toString();
+	if (newValue.length > 1) {
+		newValue = newValue.slice(0, -1);
+		displayValue = parseFloat(newValue.replace(/\./g, ""));
+		updateDisplay(displayValue.toLocaleString("pt-BR"));
+	} else {
+		displayValue = 0;
+		displayIsZero = true;
+		updateDisplay(displayValue);
+        clearDisplay()
+	}
+}
+
+const backButton = document.getElementById("backButton");
+backButton.addEventListener("click", backspace);
+
 const expressions = [buttonAdd, buttonSubtract, buttonDivide, buttonMultiply];
 
 buttonAdd.addEventListener("click", function () {
@@ -114,7 +133,10 @@ buttonAdd.addEventListener("click", function () {
 	miniDisplay.innerHTML = `${firstNumber} + `;
 	display.innerHTML = firstNumber;
 	secondNumber = display.innerHTML;
-	return Number(firstNumber.replace(/\./g, '')), console.log(Number(firstNumber.replace(/\./g, '')));
+	return (
+		Number(firstNumber.replace(/\./g, "")),
+		console.log(Number(firstNumber.replace(/\./g, "")))
+	);
 });
 
 buttonMultiply.addEventListener("click", function () {
@@ -153,17 +175,16 @@ buttonEquals.addEventListener("click", function () {
 		display.innerHTML = result.toLocaleString("pt-BR");
 		miniDisplay.innerHTML = `${firstNumber} - ${secondNumber} =`;
 		console.log(result);
-        
-        //Adição
+
+		//Adição
 	} else if (miniDisplay.innerHTML == `${firstNumber} + `) {
 		secondNumber = display.innerHTML;
-        secondNumber.replace(/\./g, '')
+		secondNumber.replace(/\./g, "");
 		clearDisplay();
 
 		let result = Number(firstNumber) + Number(secondNumber);
 		display.innerHTML = result.toLocaleString("pt-BR");
 		miniDisplay.innerHTML = `${firstNumber} + ${secondNumber} =`;
-
 	} else if (miniDisplay.innerHTML == `${firstNumber} x `) {
 		secondNumber = display.innerHTML;
 		clearDisplay();
