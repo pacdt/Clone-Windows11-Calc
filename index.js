@@ -2,29 +2,12 @@ let display = document.getElementById("display");
 let miniDisplay = document.getElementById("miniDisplay");
 let displayIsZero = true;
 
-// let digitsCount = 0;
-
-// function updateDisplay(value) {
-// 	if (displayIsZero) {
-// 		display.innerHTML = value.toLocaleString("pt-BR");
-// 		miniDisplay.innerHTML;
-// 		displayIsZero = false;
-// 		digitsCount = 1;
-// 	} else {
-// 		const displayValue = display.innerHTML.toLocaleString("pt-BR");
-// 		if (displayValue.length < 11) {
-// 			display.innerHTML += value.toLocaleString("pt-BR");
-// 			digitsCount++;
-// 		}
-// 	}
-// }
-
 function updateDisplay(value) {
 	if (displayIsZero) {
 		display.innerHTML = removeDecimalPoint(value);
 		miniDisplay.innerHTML;
 		displayIsZero = false;
-	} else if (display.innerHTML.length < 11) {
+	} else if (display.innerHTML.length < 12) {
 		display.innerHTML += removeDecimalPoint(value);
 	}
 	addThousandsSeparator();
@@ -102,13 +85,13 @@ const buttons = [
 for (let i = 0; i < buttons.length; i++) {
 	const button = document.getElementById(buttons[i]);
 	button.addEventListener("click", function () {
-		updateDisplay(buttons[i].replace("button", "").toLocaleString("pt-BR"));
+		updateDisplay(buttons[i].replace("button", ""));
 	});
 }
 
 function backspace() {
-    let displayValue = display.innerHTML;
-    display.innerHTML = ''
+	let displayValue = display.innerHTML;
+	display.innerHTML = "";
 	let newValue = displayValue.toString();
 	if (newValue.length > 1) {
 		newValue = newValue.slice(0, -1);
@@ -118,14 +101,12 @@ function backspace() {
 		displayValue = 0;
 		displayIsZero = true;
 		updateDisplay(displayValue);
-        clearDisplay()
+		clearDisplay();
 	}
 }
 
 const backButton = document.getElementById("backButton");
 backButton.addEventListener("click", backspace);
-
-const expressions = [buttonAdd, buttonSubtract, buttonDivide, buttonMultiply];
 
 buttonAdd.addEventListener("click", function () {
 	firstNumber = display.innerHTML;
@@ -133,10 +114,7 @@ buttonAdd.addEventListener("click", function () {
 	miniDisplay.innerHTML = `${firstNumber} + `;
 	display.innerHTML = firstNumber;
 	secondNumber = display.innerHTML;
-	return (
-		Number(firstNumber.replace(/\./g, "")),
-		console.log(Number(firstNumber.replace(/\./g, "")))
-	);
+	return Number(firstNumber.replace(/\./g, "").toLocaleString('pt-br', {style: 'decimal'}));
 });
 
 buttonMultiply.addEventListener("click", function () {
@@ -145,7 +123,7 @@ buttonMultiply.addEventListener("click", function () {
 	miniDisplay.innerHTML = `${firstNumber} x `;
 	display.innerHTML = firstNumber;
 	secondNumber = display.innerHTML;
-	return firstNumber;
+	return Number(firstNumber.replace(/\./g, "").toLocaleString('pt-br', {style: 'decimal'}));
 });
 
 buttonDivide.addEventListener("click", function () {
@@ -154,7 +132,7 @@ buttonDivide.addEventListener("click", function () {
 	miniDisplay.innerHTML = `${firstNumber} &divide;`;
 	display.innerHTML = firstNumber;
 	secondNumber = display.innerHTML;
-	return firstNumber;
+	return Number(firstNumber.replace(/\./g, "").toLocaleString('pt-br', {style: 'decimal'}));
 });
 
 buttonSubtract.addEventListener("click", function () {
@@ -163,41 +141,39 @@ buttonSubtract.addEventListener("click", function () {
 	miniDisplay.innerHTML = `${firstNumber} - `;
 	display.innerHTML = firstNumber;
 	secondNumber = display.innerHTML;
-	return firstNumber;
+	return Number(firstNumber.replace(/\./g, "").toLocaleString('pt-br', {style: 'decimal'}));
 });
-console.log(firstNumber, secondNumber);
+
 
 buttonEquals.addEventListener("click", function () {
 	if (miniDisplay.innerHTML == `${firstNumber} - `) {
 		secondNumber = display.innerHTML;
 		clearDisplay();
-		let result = firstNumber - secondNumber;
-		display.innerHTML = result.toLocaleString("pt-BR");
+		let result = Number(firstNumber) - Number(secondNumber);
+		display.innerHTML = result
 		miniDisplay.innerHTML = `${firstNumber} - ${secondNumber} =`;
-		console.log(result);
-
-		//Adição
+		
 	} else if (miniDisplay.innerHTML == `${firstNumber} + `) {
 		secondNumber = display.innerHTML;
 		secondNumber.replace(/\./g, "");
 		clearDisplay();
-
 		let result = Number(firstNumber) + Number(secondNumber);
-		display.innerHTML = result.toLocaleString("pt-BR");
+		display.innerHTML = result;
 		miniDisplay.innerHTML = `${firstNumber} + ${secondNumber} =`;
+
 	} else if (miniDisplay.innerHTML == `${firstNumber} x `) {
 		secondNumber = display.innerHTML;
 		clearDisplay();
 		let result = firstNumber * secondNumber;
-		display.innerHTML = result.toLocaleString("pt-BR");
+		display.innerHTML = result
 		miniDisplay.innerHTML = `${firstNumber} x ${secondNumber} =`;
-		console.log(result);
+
 	} else {
 		secondNumber = display.innerHTML;
 		clearDisplay();
 		let result = firstNumber / secondNumber;
-		display.innerHTML = result.toLocaleString("pt-BR");
+		display.innerHTML = result
 		miniDisplay.innerHTML = `${firstNumber} &divide; ${secondNumber} =`;
-		console.log(result);
+
 	}
 });

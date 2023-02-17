@@ -97,6 +97,7 @@ body{
     align-items: flex-end;
     font-size: 2.7rem;
     font-weight: 600;
+    letter-spacing: 2px;
     padding: 0 10px;
     flex-wrap: wrap;
 }
@@ -107,6 +108,7 @@ body{
     font-size: .9rem;
     margin-bottom: 3px;
     text-transform: uppercase;
+    cursor: not-allowed;
 }
 .deactivate{
     color: #ccc;
