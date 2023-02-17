@@ -30,8 +30,11 @@
             <i class="ph-clock-counter-clockwise ph-xl"></i>
         </div>
         <!-- Área de resultados -->
-        <div id="resultado">
-            <h2>0</h2>
+        <div id="miniDisplay" style="display: flex; flex-direction: row-reverse; margin-bottom: -25px; padding-right: 15px; color: #a8a4a4; font-weight: bold;">
+            &nbsp;
+        </div>
+        <div id="display">
+            0
         </div>
         <!-- Área de Funções -->
         <div id="functions">
@@ -43,35 +46,32 @@
             <span class="deactivate">m&or;</span>
         </div>
         <div id="buttons">
-            <div class="button"><i class="ph-percent"></i></div>
-            <div class="button">CE</div>
-            <div class="button">C</div>
-            <div class="button"><i class="ph-backspace"></i></div>
-            <div class="button">&#8543;x</div>
-            <div class="button">x&sup2;</div>
-            <div class="button">&sup2;&radic;x</div>
-            <div class="button"><i class="ph-divide"></i></div>
-            <div class="button actived">7</div>
-            <div class="button actived">8</div>
-            <div class="button actived">9</div>
-            <div class="button"><i class="ph-x"></i></div>
-            <div class="button actived">4</div>
-            <div class="button actived">5</div>
-            <div class="button actived">6</div>
-            <div class="button"><i class="ph-minus"></i></div>
-            <div class="button actived">1</div>
-            <div class="button actived">2</div>
-            <div class="button actived">3</div>
-            <div class="button"><i class="ph-plus"></i></div>
-            <div class="button actived"><i class="ph-plus-minus"></i></div>
-            <div class="button actived">0</div>
-            <div class="button actived">,</div>
-            <div class="button igual"><i class="ph-equals"></i></div>
+            <div class="button" ><i class="ph-percent"></i></div>
+            <div class="button" id="limpar">CE</div>
+            <div class="button" id="buttonClear">C</div>
+            <div class="button" ><i class="ph-backspace"></i></div>
+            <div class="button" >&#8543;x</div>
+            <div class="button" >x&sup2;</div>
+            <div class="button" >&sup2;&radic;x</div>
+            <div class="button" id="buttonDivide"><i class="ph-divide"></i></div>
+            <div class="button actived" id="button7">7</div>
+            <div class="button actived" id="button8">8</div>
+            <div class="button actived" id="button9">9</div>
+            <div class="button" id="buttonMultiply"><i class="ph-x"></i></div>
+            <div class="button actived" id="button4">4</div>
+            <div class="button actived" id="button5">5</div>
+            <div class="button actived" id="button6">6</div>
+            <div class="button" id="buttonSubtract"><i class="ph-minus"></i></div>
+            <div class="button actived" id="button1">1</div>
+            <div class="button actived" id="button2">2</div>
+            <div class="button actived" id="button3">3</div>
+            <div class="button" id="buttonAdd"><i class="ph-plus"></i></div>
+            <div class="button actived" id="buttonSubtract"><i class="ph-plus-minus"></i></div>
+            <div class="button actived" id="button0">0</div>
+            <div class="button actived" id="virgula">,</div>
+            <div class="button igual" id="buttonEquals"><i class="ph-equals"></i></div>
         </div>
-
-
-
-
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

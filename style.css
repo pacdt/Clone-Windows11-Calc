@@ -88,14 +88,17 @@ body{
     gap: 10px;
     align-items: center;
 }
-#resultado{
+#display{
     width: 100%;
     height: 80px;
+    /* max-width: 290px; */
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-end;
-    font-size: 1.8rem;
+    font-size: 2.7rem;
+    font-weight: 600;
     padding: 0 10px;
+    flex-wrap: wrap;
 }
 #functions{
     width: 100%;
@@ -127,6 +130,10 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #746868;
 }
 .actived{
     background-color: #5a5858;
@@ -135,4 +142,7 @@ body{
     background-color: salmon;
     /* font-size: 1.6em; */
     color: black;
+}
+.igual:hover{
+    background-color: #ec897e;
 }
