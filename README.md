@@ -33,7 +33,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 A Calculadora foi desenvoldida para testar meus conhecimentos em HTML/CSS e JavaScript. Para desenvolver este projeto também utilizei o ChatGPT como fontes de pesquisa, para que certas funcionalidades dessem certo, como a atualização do Display com pontos de milhar, já que na minha lógica o .toLocaleString() não estava funcionando, entre outras features menores. 
 
-Acesse o projeto neste Link: <a target="_blank" href="https://w11calc.devmateus.tech/">Calculadora</a>
+Acesse o projeto neste Link: <a href="https://w11calc.devmateus.tech/" target="_blank">Calculadora</a>
 
 ## 🔖 Layout
 
